@@ -1,5 +1,5 @@
-import { useLeague } from '@/app/leagues/[id]/useLeague';
 import { League } from '@/app/leagues/[id]/League';
+import { useLeague } from '@/app/leagues/[id]/useLeague';
 
 export default async function Page({
   params,

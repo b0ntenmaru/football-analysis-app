@@ -1,6 +1,6 @@
 'use client';
 
-import { League } from '@/app/leagues/useLeagues';
+import type { League } from '@/app/utils/types/League';
 
 type LeagueProps = {
   league: League;

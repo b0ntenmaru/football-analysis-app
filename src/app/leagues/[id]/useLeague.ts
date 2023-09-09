@@ -1,5 +1,5 @@
-import { League } from '@/app/leagues/useLeagues';
 import { fetchFromSportmonks } from '@/app/utils/fetchFromSportmonks';
+import { League } from '@/app/utils/types/League';
 
 export const useLeague = async (leagueId: number) => {
   const league: League = await fetchFromSportmonks({
