@@ -10,7 +10,7 @@ export default async function Page({
   };
 }) {
   const league = await useLeague(params.id);
-  const season = league.seasons.find((season) => season.is_current === true);
+  const season = league.seasons.find((season) => season.is_current);
   if (season === undefined) throw new Error('シーズンが存在しません');
 
   const standings = await useStandings(season.id);
