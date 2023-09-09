@@ -1,9 +1,11 @@
+import {fetchFromSportmonks} from "@/app/utils/fetchFromSportmonks";
 
+export default async function Home() {
+    const data = await fetchFromSportmonks({query: 'fixtures'})
 
-export default function Page() {
     return (
         <div>
-            teams/page
+            {JSON.stringify(data)}
         </div>
     )
 }
