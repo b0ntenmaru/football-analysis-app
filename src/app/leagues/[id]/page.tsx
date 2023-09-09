@@ -1,11 +1,18 @@
-'use client';
+import { useLeague } from '@/app/leagues/[id]/useLeague';
+import { League } from '@/app/leagues/[id]/League';
 
-export default function Page({
+export default async function Page({
   params,
 }: {
   params: {
     id: number;
   };
 }) {
-  return <div>leabues/{params.id}</div>;
+  const league = await useLeague(params.id);
+
+  return (
+    <div>
+      <League league={league} />
+    </div>
+  );
 }
