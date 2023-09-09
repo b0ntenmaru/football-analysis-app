@@ -1,7 +1,6 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Provider from "@/app/Provider";
+import Provider from "@/app/components/Provider";
 import Main from '@/app/components/Main';
 import { SidebarWithHeader } from "@/app/components/SideBarWithHeader";
 
