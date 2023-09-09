@@ -1,4 +1,4 @@
-import { League } from '@/app/leagues/[id]/League';
+import { LeagueDetail } from '@/app/leagues/[id]/LeagueDetail';
 import { useLeague } from '@/app/leagues/[id]/useLeague';
 import { useStandings } from '@/app/leagues/[id]/useStandings';
 
@@ -10,6 +10,7 @@ export default async function Page({
   };
 }) {
   const league = await useLeague(params.id);
+
   const season = league.seasons.find((season) => season.is_current);
   if (season === undefined) throw new Error('シーズンが存在しません');
 
@@ -17,7 +18,7 @@ export default async function Page({
 
   return (
     <div>
-      <League league={league} standings={standings} />
+      <LeagueDetail league={league} standings={standings} />
     </div>
   );
 }

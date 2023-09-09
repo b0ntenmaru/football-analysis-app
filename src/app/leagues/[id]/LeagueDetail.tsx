@@ -8,6 +8,6 @@ type LeagueProps = {
   standings: Standing[];
 };
 
-export function League({ league, standings }: LeagueProps) {
+export function LeagueDetail({ league, standings }: LeagueProps) {
   return <div>{JSON.stringify(standings)}</div>;
 }
