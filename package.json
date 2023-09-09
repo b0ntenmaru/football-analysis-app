@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc -p . --noEmit"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.5",

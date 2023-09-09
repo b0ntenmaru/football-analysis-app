@@ -3,7 +3,7 @@
 import { Avatar, Box, Button, Card, CardBody, Flex, Text } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import type { League } from '@/app/leagues/useLeagues';
+import { League } from '@/app/utils/types/League';
 
 type LeaguesProps = {
   leagues: League[];
