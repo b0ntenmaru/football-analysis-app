@@ -13,6 +13,15 @@ type Participant = {
   last_played_at: string;
 };
 
+type Form = {
+  id: number;
+  standing_type: string;
+  standing_id: number;
+  fixture_id: number;
+  form: string;
+  sort_order: number;
+};
+
 export type Standing = {
   id: number;
   participant_id: number;
@@ -27,4 +36,5 @@ export type Standing = {
   result: string;
   points: number;
   participant: Participant;
+  form: Form[];
 };

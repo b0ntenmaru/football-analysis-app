@@ -1,4 +1,4 @@
-type Season = {
+export type Season = {
   id: number;
   sport_id: number;
   league_id: number;
@@ -11,6 +11,20 @@ type Season = {
   ending_at: string;
   standings_recalculated_at: string;
   games_in_current_week: boolean;
+};
+
+type Country = {
+  id: number;
+  continent_id: number;
+  name: string;
+  official_name: string;
+  fifa_name: string;
+  iso2: string;
+  iso3: string;
+  latitude: string;
+  longitude: string;
+  borders: string[];
+  image_path: string;
 };
 
 export type League = {
@@ -27,4 +41,5 @@ export type League = {
   category: number;
   has_jerseys: boolean;
   seasons: Season[];
+  country: Country;
 };

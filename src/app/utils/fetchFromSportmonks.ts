@@ -11,13 +11,9 @@ const fetchFromSportmonks = async ({ query, include }: Args) => {
 
   const path = `https://api.sportmonks.com/v3/football/${query}?api_token=${token}&include=${
     include === undefined ? '' : include
-  }`;
+  }&locale=ja`;
 
-  console.log(
-    `https://api.sportmonks.com/v3/football/${query}?api_token=${token}&include=${
-      include === undefined ? '' : include
-    }`,
-  );
+  console.log(path);
 
   const response = await fetch(path);
   const res = await response.json();

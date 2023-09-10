@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Provider from '@/app/components/Provider';
 import Main from '@/app/components/Main';
-import { SidebarWithHeader } from '@/app/components/SideBarWithHeader';
+import Provider from '@/app/components/Provider';
+import { Sidebar } from '@/app/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,9 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body>
         <Provider>
-          <SidebarWithHeader>
+          <Sidebar>
             <Main>{children}</Main>
-          </SidebarWithHeader>
+          </Sidebar>
         </Provider>
       </body>
     </html>

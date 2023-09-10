@@ -4,7 +4,8 @@ import type { Standing } from '@/app/utils/types/Standing';
 export const useStandings = async (seasonId: number) => {
   const standings: Standing[] = await fetchFromSportmonks({
     query: `standings/seasons/${seasonId}`,
-    include: 'participant',
+    include: 'participant;form',
   });
+
   return standings;
 };
