@@ -1,6 +1,5 @@
 'use client';
 
-import React, { ReactText } from 'react';
 import {
   Box,
   BoxProps,
@@ -15,6 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
+import React, { ReactText } from 'react';
 import { IconType } from 'react-icons';
 import { FiCompass, FiHome, FiMenu, FiSettings, FiStar, FiTrendingUp } from 'react-icons/fi';
 
