@@ -1,83 +1,42 @@
 'use client';
 
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Breadcrumb, ConfigProvider, Layout, Menu, theme } from 'antd';
-import React, { useState } from 'react';
-import themeConfig from '@/app/themeConfig';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
-const { Header, Content, Footer, Sider } = Layout;
+import 'antd/dist/reset.css';
 
-type MenuItem = Required<MenuProps>['items'][number];
-
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
-  ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-  getItem('Files', '9', <FileOutlined />),
-];
+const { Header, Content, Footer } = Layout;
 
 const AntdLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   return (
-    <ConfigProvider theme={themeConfig}>
-      {/* フロントエンドにレンダリングされるまで .ant-layout-has-siderが付与されずに一時的にスタイルが崩れるためclassNameを指定しておく  */}
-      <Layout style={{ minHeight: '100vh' }} className={'ant-layout-has-sider'}>
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-          <div
-            style={{
-              height: '32px',
-              margin: '16px',
-              background: 'rgba(255,255,255,.2)',
-              borderRadius: '6px',
-            }}
-          />
-          <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline' items={items} />
-        </Sider>
-        <Layout>
-          <Header style={{ padding: 0, background: colorBgContainer }} />
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
-              {children}
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
-        </Layout>
-      </Layout>
-    </ConfigProvider>
+    <Layout className='layout'>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className='demo-logo' />
+        <Menu
+          theme='dark'
+          mode='horizontal'
+          defaultSelectedKeys={['2']}
+          items={new Array(15).fill(null).map((_, index) => {
+            const key = index + 1;
+            return {
+              key,
+              label: `nav ${key}`,
+            };
+          })}
+        />
+      </Header>
+      <Content style={{ padding: '0 200px' }}>
+        <Breadcrumb
+          style={{ margin: '16px 0' }}
+          items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+        />
+        <div className='site-layout-content'>{children}</div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+    </Layout>
   );
 };
 
