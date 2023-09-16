@@ -2,8 +2,9 @@
 
 import { Card, Col, Row, Space, Typography } from 'antd';
 import React, { useMemo } from 'react';
-import { Fixture } from '@/app/utils/types/Fixture';
 import { FixtureResult } from '@/app/fixtures/[fixture_id]/FixtureResult';
+import { Fixture } from '@/app/utils/types/Fixture';
+import { FixtureTimeline } from '@/app/fixtures/[fixture_id]/FixtureTimeline';
 
 const { Paragraph, Title } = Typography;
 
@@ -24,12 +25,13 @@ export function FixtureDetailUi({ fixture }: FixtureDetailUiProps) {
     )?.data.value;
   }, [fixture.statistics]);
 
-  const homeParticipant = fixture.participants.find(
-    (participant) => participant.meta.location === 'home',
-  );
-  const awayParticipant = fixture.participants.find(
-    (participant) => participant.meta.location === 'away',
-  );
+  const homeParticipant = useMemo(() => {
+    return fixture.participants.find((participant) => participant.meta.location === 'home');
+  }, [fixture.participants]);
+
+  const awayParticipant = useMemo(() => {
+    return fixture.participants.find((participant) => participant.meta.location === 'away');
+  }, [fixture.participants]);
 
   return (
     <>
@@ -49,12 +51,18 @@ export function FixtureDetailUi({ fixture }: FixtureDetailUiProps) {
           </Col>
         </Row>
 
-        <Row gutter={16}>
-          <Col span={12}>
-            <Card>col-12</Card>
+        <Row gutter={8}>
+          <Col span={16}>
+            {homeParticipant && awayParticipant && (
+              <FixtureTimeline
+                homeParticipant={homeParticipant}
+                awayParticipant={awayParticipant}
+                events={fixture.events}
+              />
+            )}
           </Col>
-          <Col span={12}>
-            <Card>col-12</Card>
+          <Col span={8}>
+            <Card>fff</Card>
           </Col>
         </Row>
       </Space>

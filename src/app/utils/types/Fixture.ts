@@ -1,4 +1,4 @@
-type FixtureEvent = {
+export type FixtureEvent = {
   id: number;
   fixture_id: number;
   period_id: number;

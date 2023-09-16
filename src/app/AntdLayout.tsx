@@ -12,7 +12,7 @@ const AntdLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   } = theme.useToken();
 
   return (
-    <Layout className='layout' style={{ height: '100%' }}>
+    <Layout className='layout'>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className='demo-logo' />
         <Menu

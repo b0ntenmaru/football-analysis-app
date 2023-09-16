@@ -34,7 +34,10 @@ export function FixtureResult({
               </div>
             </div>
             <div>
-              <Avatar size={56} src={<Image src={homeParticipant.image_path} alt='avatar' />} />
+              <Avatar
+                size={56}
+                src={<Image src={homeParticipant.image_path} alt={homeParticipant.name} />}
+              />
             </div>
           </div>
           <div style={{ fontSize: '48px' }}>{homeGoal}</div>
@@ -61,7 +64,10 @@ export function FixtureResult({
             <div style={{ fontSize: '48px' }}>{awayGoal}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div>
-                <Avatar size={56} src={<Image src={awayParticipant.image_path} alt='avatar' />} />
+                <Avatar
+                  size={56}
+                  src={<Image src={awayParticipant.image_path} alt={awayParticipant.name} />}
+                />
               </div>
               <div>
                 <div style={{ fontSize: '22px', fontWeight: 'bold' }}>{awayParticipant.name}</div>
