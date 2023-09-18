@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
-import AntdLayout from '@/app/AntdLayout';
-import StyledComponentsRegistry from '@/app/AntdRegistry';
 import '@/app/globals.css';
+import { AppLayout } from './AppLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +18,11 @@ interface RootLayoutProps {
 function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
+      <head>
+        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
+      </head>
       <body className={inter.className}>
-        <StyledComponentsRegistry>
-          <AntdLayout>{children}</AntdLayout>
-        </StyledComponentsRegistry>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );

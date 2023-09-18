@@ -1,5 +1,6 @@
 import React from 'react';
+import Example from './Example';
 
-const Home = () => <div>hogehgoe</div>;
+const Home = () => <Example />;
 
 export default Home;
