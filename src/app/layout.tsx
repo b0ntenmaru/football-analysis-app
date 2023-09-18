@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
 import '@/app/globals.css';
-import { AppLayout } from './AppLayout';
+import { TailwindLayout } from './TailwindLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +22,7 @@ function RootLayout({ children }: RootLayoutProps) {
         <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
       </head>
       <body className={inter.className}>
-        <AppLayout>{children}</AppLayout>
+        <TailwindLayout>{children}</TailwindLayout>
       </body>
     </html>
   );

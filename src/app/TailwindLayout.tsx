@@ -1,8 +1,8 @@
 'use client';
 
-import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import React, { Fragment } from 'react';
 
 const user = {
   name: 'Tom Cook',
@@ -27,7 +27,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export function AppLayout({ children }: { children: React.ReactNode }) {
+export function TailwindLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/*
@@ -86,7 +86,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       {/* Profile dropdown */}
                       <Menu as='div' className='relative ml-3'>
                         <div>
-                          <Menu.Button className='relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
+                          <Menu.Button className='relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'>
                             <span className='absolute -inset-1.5' />
                             <span className='sr-only'>Open user menu</span>
                             <img className='h-8 w-8 rounded-full' src={user.imageUrl} alt='' />
@@ -162,8 +162,12 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                       <img className='h-10 w-10 rounded-full' src={user.imageUrl} alt='' />
                     </div>
                     <div className='ml-3'>
-                      <div className='text-base font-medium text-white'>{user.name}</div>
-                      <div className='text-sm font-medium text-gray-400'>{user.email}</div>
+                      <div className='text-base font-medium leading-none text-white'>
+                        {user.name}
+                      </div>
+                      <div className='text-sm font-medium leading-none text-gray-400'>
+                        {user.email}
+                      </div>
                     </div>
                     <button
                       type='button'
@@ -192,11 +196,6 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
           )}
         </Disclosure>
 
-        <header className='bg-white shadow-sm'>
-          <div className='mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8'>
-            <h1 className='text-lg font-semibold leading-6 text-gray-900'>Dashboard</h1>
-          </div>
-        </header>
         <main>
           <div className='mx-auto max-w-7xl py-6 sm:px-6 lg:px-8'>{children}</div>
         </main>
