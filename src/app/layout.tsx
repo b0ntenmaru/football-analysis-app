@@ -17,11 +17,11 @@ interface RootLayoutProps {
 
 function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en'>
+    <html lang='en' className='h-full bg-gray-100'>
       <head>
         <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} h-full`}>
         <TailwindLayout>{children}</TailwindLayout>
       </body>
     </html>

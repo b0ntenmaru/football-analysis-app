@@ -71,6 +71,7 @@ type Lineup = {
   formation_position: number;
   player_name: string;
   jersey_number: number;
+  position: Position;
 };
 
 export type Team = {
@@ -109,6 +110,23 @@ type Venue = {
   zipcode: null | string;
 };
 
+type Position = {
+  code: string;
+  developer_name: string;
+  id: number;
+  model_type: string;
+  name: string;
+  stat_group: null | string;
+};
+
+type Formation = {
+  fixture_id: number;
+  formation: string;
+  id: number;
+  location: 'home' | 'away';
+  participant_id: number;
+};
+
 export type Fixture = {
   id: number;
   sport_id: number;
@@ -129,6 +147,7 @@ export type Fixture = {
   placeholder: boolean;
   has_odds: boolean;
   starting_at_timestamp: number;
+  formations: Formation[];
   league: {
     id: number;
     sport_id: number;
