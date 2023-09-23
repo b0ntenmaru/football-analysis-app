@@ -93,6 +93,22 @@ export type Team = {
   };
 };
 
+type Venue = {
+  address: string;
+  capacity: number;
+  city_id: null | number;
+  city_name: string;
+  country_id: null | number;
+  id: number;
+  image_path: string;
+  latitude: string;
+  longitude: string;
+  name: string;
+  national_team: boolean;
+  surface: string;
+  zipcode: null | string;
+};
+
 export type Fixture = {
   id: number;
   sport_id: number;
@@ -139,4 +155,5 @@ export type Fixture = {
   statistics: Statistic[];
   scores: Score[];
   participants: Team[];
+  venue: Venue;
 };

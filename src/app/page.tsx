@@ -1,6 +1,6 @@
 import React from 'react';
-import Example from './Example';
+import { HomeUi } from '@/app/home/HomeUi';
 
-const Home = () => <Example />;
-
-export default Home;
+export default function Home() {
+  return <HomeUi />;
+}
