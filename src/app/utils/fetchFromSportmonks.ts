@@ -1,4 +1,4 @@
-import { useApiToken } from '@/app/utils/useApiToken';
+import { useSportmonksApiToken } from '@/app/utils/useSportmonksApiToken';
 
 type Args = {
   query: string;
@@ -8,7 +8,7 @@ type Args = {
 
 const fetchFromSportmonks = async (args: Args) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const token = useApiToken();
+  const token = useSportmonksApiToken();
   const { query } = args;
 
   const include = args.include === undefined ? '' : args.include;
