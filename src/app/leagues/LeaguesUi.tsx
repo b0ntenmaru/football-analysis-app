@@ -1,8 +1,9 @@
 'use client';
 
+import React from 'react';
 import { Panel } from '@/app/fixtures/[fixture_id]/Panel';
 import { League } from '@/app/leagues/League';
-import LeagueList from '@/app/leagues/LeagueList';
+import { LeagueList } from '@/app/leagues/LeagueList';
 
 type LeagueListProps = {
   leagueList: League[];
