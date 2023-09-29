@@ -1,7 +1,11 @@
-import { fetchFromSportmonks } from '@/app/utils/fetchFromSportmonks';
-import { League } from '@/app/utils/types/League';
+import { League } from '@/app/leagues/League';
+import { fetchFromFootyStats } from '@/app/utils/fetchFromFootyStats';
 
 export const useLeagues = async () => {
-  const leagues: League[] = await fetchFromSportmonks({ query: 'leagues', include: 'seasons' });
+  const leagues: League[] = await fetchFromFootyStats({
+    query: 'league-list',
+    params: 'chosen_leagues_only=true',
+  });
+
   return leagues;
 };

@@ -1,4 +1,4 @@
-type Season = {
+export type Season = {
   id: number;
   year: number;
 };
