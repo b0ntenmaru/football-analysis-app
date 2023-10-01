@@ -1,10 +1,7 @@
-import { fetchFromFootyStats } from '@/app/utils/fetchFromFootyStats';
+import { SeasonPlayer } from '@/app/analysis/SeasonPlayer';
 
-export const useSeasonPlayers = async (seasonId: number) => {
-  const seasonPlayers: any = await fetchFromFootyStats({
-    query: '/league-players',
-    params: `season_id=${seasonId}`,
-  });
-
-  return seasonPlayers;
+export const useSeasonPlayers = async (seasonId: number, pageNum?: number) => {
+  const response = await fetch(`/api/league-players/${seasonId}?page=${pageNum}`);
+  const res = await response.json();
+  return res.data as SeasonPlayer[];
 };
