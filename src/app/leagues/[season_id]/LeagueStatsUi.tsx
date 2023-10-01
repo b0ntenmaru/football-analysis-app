@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Panel } from '@/app/fixtures/[fixture_id]/Panel';
-import { SectionHeading } from '@/app/fixtures/[fixture_id]/SectionHeading';
 import type { LeagueStats } from '@/app/leagues/[season_id]/LeagueStats';
+import { Panel } from '@/app/leagues/[season_id]/Panel';
+import { SectionHeading } from '@/app/leagues/[season_id]/SectionHeading';
 import { TopScorers } from '@/app/leagues/[season_id]/TopScorers';
 
 type LeagueStatsUiProps = {
