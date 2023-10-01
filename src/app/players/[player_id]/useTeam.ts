@@ -1,7 +1,7 @@
-import { fetchFromFootyStats } from '@/app/utils/fetchFromFootyStats';
+import { fetchDataFromFootyStats } from '@/app/utils/fetchDataFromFootyStats';
 
 export const useTeam = async (teamId: number) => {
-  const team: any = await fetchFromFootyStats({
+  const team: any = await fetchDataFromFootyStats({
     query: 'team',
     params: `team_id=${teamId}`,
   });

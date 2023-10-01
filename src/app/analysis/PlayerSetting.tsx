@@ -12,6 +12,8 @@ type PlayerSettingProps = {
   selectedSeason: Season | null;
   handleChangeSeason: (seasonId: number) => void;
   seasonPlayers: SeasonPlayer[];
+  isSeasonPlayersLoading: boolean;
+  setSeasonPlayer: (player: SeasonPlayer | null) => void;
 };
 export const PlayerSetting = ({
   leagues,
@@ -20,6 +22,8 @@ export const PlayerSetting = ({
   selectedSeason,
   handleChangeSeason,
   seasonPlayers,
+  isSeasonPlayersLoading,
+  setSeasonPlayer,
 }: PlayerSettingProps) => {
   const leagueOptions = useMemo(() => {
     return leagues.map((league) => ({
@@ -59,15 +63,17 @@ export const PlayerSetting = ({
           options={seasonOptions}
           value={selectedSeason}
           handleChange={handleChangeSeason}
-          disabled={selectedLeague === null}
+          disabled={selectedLeague === null || isSeasonPlayersLoading}
         />
       </div>
 
       <div className='mb-5'>
         <PlayerInputComboBox
           label={'選手を入力する（ローマ字でお願いします😢🙏）'}
-          disabled={selectedSeason === null}
+          disabled={selectedSeason === null || isSeasonPlayersLoading}
           candidate={seasonPlayers}
+          isSeasonPlayersLoading={isSeasonPlayersLoading}
+          setSeasonPlayer={setSeasonPlayer}
         />
       </div>
     </div>

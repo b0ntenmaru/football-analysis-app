@@ -9,7 +9,7 @@ export type PlayerStats = {
   assists_per_90_overall: number; // オーバーオール平均アシスト数（試合ごと）
   birthday: number; // 選手の誕生日（タイムスタンプ）
   cards_overall: number; // すべての試合でのカード数
-  cards_per_90_overall: number; // オーバーオール平均カード数（試合ごと）
+  cards_per_90_overall: number; // 90分間における平均カード数
   clean_sheets_away: number; // アウェー試合クリーンシート数
   clean_sheets_home: number; // ホーム試合クリーンシート数
   clean_sheets_overall: number; // すべての試合クリーンシート数

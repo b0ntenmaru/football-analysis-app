@@ -4,10 +4,11 @@ import { Fragment, useRef } from 'react';
 type ModalProps = {
   open: boolean;
   handleChange: (open: boolean) => void;
+  handleSubmit: () => void;
   children: React.ReactNode;
 };
 
-export function Modal({ open, handleChange, children }: ModalProps) {
+export function Modal({ open, handleChange, children, handleSubmit }: ModalProps) {
   const cancelButtonRef = useRef(null);
 
   return (
@@ -42,7 +43,7 @@ export function Modal({ open, handleChange, children }: ModalProps) {
                   <button
                     type='button'
                     className='inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2'
-                    onClick={() => handleChange(false)}
+                    onClick={() => handleSubmit()}
                   >
                     Deactivate
                   </button>

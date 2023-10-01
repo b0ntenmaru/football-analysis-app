@@ -1,8 +1,8 @@
 import { League } from '@/app/leagues/League';
-import { fetchFromFootyStats } from '@/app/utils/fetchFromFootyStats';
+import { fetchDataFromFootyStats } from '@/app/utils/fetchDataFromFootyStats';
 
 export const useLeagues = async () => {
-  const leagues: League[] = await fetchFromFootyStats({
+  const leagues: League[] = await fetchDataFromFootyStats({
     query: 'league-list',
     params: 'chosen_leagues_only=true',
   });

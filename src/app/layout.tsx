@@ -17,7 +17,7 @@ interface RootLayoutProps {
 
 function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang='en' className='h-full bg-white'>
+    <html lang='ja' className='h-full'>
       <head>
         <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
       </head>
