@@ -5,8 +5,8 @@ import { Bars3Icon, HomeIcon, UsersIcon, XMarkIcon } from '@heroicons/react/24/o
 import { Fragment, useState } from 'react';
 
 const navigation = [
-  { name: 'Home', href: '/', icon: HomeIcon, current: true },
-  { name: 'Analysis', href: '/analysis', icon: UsersIcon, current: false },
+  { name: 'Home', href: '/', icon: HomeIcon },
+  { name: 'Analysis', href: '/analysis', icon: UsersIcon },
 ];
 const teams = [
   { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
@@ -20,6 +20,10 @@ function classNames(...classes: string[]) {
 
 export function TailwindLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const isCurrent = (href: string) => {
+    return href === location.pathname;
+  };
 
   return (
     <>
@@ -95,7 +99,7 @@ export function TailwindLayout({ children }: { children: React.ReactNode }) {
                                 <a
                                   href={item.href}
                                   className={classNames(
-                                    item.current
+                                    isCurrent(item.href)
                                       ? 'bg-gray-800 text-white'
                                       : 'text-gray-400 hover:text-white hover:bg-gray-800',
                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
@@ -162,7 +166,7 @@ export function TailwindLayout({ children }: { children: React.ReactNode }) {
                         <a
                           href={item.href}
                           className={classNames(
-                            item.current
+                            isCurrent(item.href)
                               ? 'bg-gray-800 text-white'
                               : 'text-gray-400 hover:text-white hover:bg-gray-800',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
