@@ -1,38 +1,12 @@
+import React from 'react';
 import { SeasonPlayer } from '@/app/analysis/SeasonPlayer';
-
-const people = [
-  {
-    name: 'Leslie Alexander',
-    email: 'leslie.alexander@example.com',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    lastSeen: '3h ago',
-    lastSeenDateTime: '2023-01-23T13:23Z',
-  },
-  {
-    name: 'Michael Foster',
-    email: 'michael.foster@example.com',
-    role: 'Co-Founder / CTO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    lastSeen: '3h ago',
-    lastSeenDateTime: '2023-01-23T13:23Z',
-  },
-];
+import { generatePlayerImagePath } from '@/app/analysis/generatePlayerImagePath';
 
 type PlayerListProps = {
   players: SeasonPlayer[];
 };
 
-export function PlayerList({ players }: PlayerListProps) {
-  const profileImagePathBase = 'https://cdn.footystats.org/img/players/';
-
-  // footy-statsのimage pathを生成する
-  const generateProfileImagePath = (shorthand: string, nationality: string) => {
-    return `${profileImagePathBase}${nationality.toLocaleLowerCase()}-${shorthand}.png`;
-  };
-
+export const PlayerList = React.memo(function PlayerList({ players }: PlayerListProps) {
   return (
     <ul role='list' className='divide-y divide-gray-100'>
       {players.map((player, i) => (
@@ -40,7 +14,7 @@ export function PlayerList({ players }: PlayerListProps) {
           <div className='flex min-w-0 gap-x-4'>
             <img
               className='h-12 w-12 flex-none rounded-full bg-gray-50'
-              src={generateProfileImagePath(player.shorthand, player.nationality)}
+              src={generatePlayerImagePath(player.shorthand, player.nationality)}
               alt=''
             />
             <div className='min-w-0 flex-auto'>
@@ -62,4 +36,4 @@ export function PlayerList({ players }: PlayerListProps) {
       ))}
     </ul>
   );
-}
+});
