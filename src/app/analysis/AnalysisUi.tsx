@@ -85,10 +85,12 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
 
   return (
     <div>
-      <SelectPlayerSection
-        targetPlayers={targetPlayers}
-        handleChangeModalOpen={handleChangeModalOpen}
-      />
+      <div>
+        <SelectPlayerSection
+          targetPlayers={targetPlayers}
+          handleChangeModalOpen={handleChangeModalOpen}
+        />
+      </div>
 
       {/* スタッツ選択 セクション */}
       <div>
