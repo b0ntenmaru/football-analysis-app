@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { AnalysisTable } from '@/app/analysis/AnalysisTable';
 import { PlayerSelectModal } from '@/app/analysis/PlayerSelectModal';
 import { PlayerSetting } from '@/app/analysis/PlayerSetting';
+import { PrimaryButton } from '@/app/analysis/PrimaryButton';
 import { SeasonPlayer } from '@/app/analysis/SeasonPlayer';
 import { SelectPlayerSection } from '@/app/analysis/SelectPlayerSection';
-import { SelectStatsSection } from '@/app/analysis/SelectStatsSection';
+import { StatsSelectModal } from '@/app/analysis/StatsSelectModal';
 import { fetchSeasonPlayers } from '@/app/analysis/fetchSeasonPlayers';
-import { StatsMappingItem } from '@/app/analysis/statsMapping';
 import type { League, Season } from '@/app/leagues/League';
 
 type AnalysisUiProps = {
@@ -22,11 +23,13 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
 
   const [targetPlayers, setTargetPlayers] = React.useState<SeasonPlayer[]>([]);
 
-  const [openModal, setOpenModal] = useState(false);
+  const [openPlayerSelectModal, setOpenPlayerSelectModal] = useState(false);
   const [isSeasonPlayersLoading, setIsSeasonPlayersLoading] = useState(false);
 
+  const [openStatsSelectModal, setOpenStatsSelectModal] = useState(false);
+
   const handleChangeModalOpen = (isOpen: boolean) => {
-    setOpenModal(isOpen);
+    setOpenPlayerSelectModal(isOpen);
   };
 
   const handleChangeLeague = (leagueIdStr: string) => {
@@ -70,21 +73,26 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
   const handleSubmitModal = () => {
     if (!seasonPlayer) return;
     setTargetPlayers((prev) => [...prev, seasonPlayer]);
-    setOpenModal(false);
+    setOpenPlayerSelectModal(false);
 
     setSelectedLeague(null);
     setSelectedSeason(null);
     setSeasonPlayer(null);
   };
 
-  const [selectedStats, setSelectedStats] = React.useState<StatsMappingItem[]>([]);
+  const [selectedStats, setSelectedStats] = useState<string[]>([]);
+  const submitStats = (values: string[]) => {
+    setSelectedStats(values);
 
-  const handleRemoveStats = (value: string) => {
-    setSelectedStats((prev) => prev.filter((stats) => stats.value !== value));
+    setOpenStatsSelectModal(false);
   };
 
   return (
-    <div>
+    <>
+      {/*<div className='text-right mb-2'>*/}
+      {/*  <PrimaryButton onClick={() => setOpenStatsSelectModal(true)}>スタッツを選ぶ</PrimaryButton>*/}
+      {/*</div>*/}
+
       <div>
         <SelectPlayerSection
           targetPlayers={targetPlayers}
@@ -92,19 +100,19 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
         />
       </div>
 
-      {/* スタッツ選択 セクション */}
-      <div>
-        <SelectStatsSection
-          statsList={selectedStats}
-          handleChangeStats={setSelectedStats}
-          handleRemoveStats={handleRemoveStats}
-        />
+      <div className='mt-10'>
+        <AnalysisTable />
       </div>
 
-      {/* 分析対象の選手を選択するためのモーダル */}
+      <StatsSelectModal
+        isOpen={openStatsSelectModal}
+        handleCloseModal={() => setOpenStatsSelectModal(false)}
+        submitStats={submitStats}
+      />
 
+      {/* 分析対象の選手を選択するためのモーダル */}
       <PlayerSelectModal
-        open={openModal}
+        open={openPlayerSelectModal}
         handleChangeModalOpen={handleChangeModalOpen}
         handleSubmitModal={handleSubmitModal}
         playerSelectComponent={
@@ -120,6 +128,6 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
           />
         }
       />
-    </div>
+    </>
   );
 };
