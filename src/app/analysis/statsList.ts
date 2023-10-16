@@ -213,3 +213,11 @@ export const statsList = {
   defensiveStats,
   performanceStats,
 };
+
+export const statsLabelList = [
+  ...basicInfoStats,
+  ...appearanceStats,
+  ...attackingStats,
+  ...defensiveStats,
+  ...performanceStats,
+];
