@@ -1,29 +1,29 @@
 import React from 'react';
+import { generatePlayerImagePath } from '@/app/analysis/generatePlayerImagePath';
+import { PlayerStats } from '@/app/players/[player_id]/PlayerStats';
 import { Option, SelectBox } from '@/app/players/[player_id]/SelectBox';
 
-const profileImagePathBase = 'https://cdn.footystats.org/img/players/';
-
 type PlayerStatsHeaderProps = {
-  shorthand: string;
-  nationality: string;
-  playerFullName: string;
-  options: Option[];
-  selectedOption: Option;
   handleChangePlayerStats: (statsId: number) => void;
+  selectedPlayerStats: PlayerStats;
+  playerStatsList: PlayerStats[];
 };
 
 export const PlayerStatsHeader = ({
-  shorthand,
-  nationality,
-  playerFullName,
-  options,
-  selectedOption,
   handleChangePlayerStats,
+  selectedPlayerStats,
+  playerStatsList,
 }: PlayerStatsHeaderProps) => {
-  // footy-statsのimage pathを生成する
-  const generateProfileImagePath = (shorthand: string, nationality: string) => {
-    return `${profileImagePathBase}${nationality.toLocaleLowerCase()}-${shorthand}.png`;
-  };
+  const { shorthand, nationality, full_name: fullName } = selectedPlayerStats;
+
+  const options: Option[] = playerStatsList.map((playerStats) => {
+    return {
+      id: playerStats.competition_id,
+      label: `${playerStats.league} ${playerStats.season} `,
+    };
+  });
+
+  const currentOptions = options.find((option) => option.id === selectedPlayerStats.competition_id);
 
   return (
     <div className='md:flex md:items-center md:justify-between'>
@@ -33,21 +33,23 @@ export const PlayerStatsHeader = ({
             <div>
               <img
                 className='inline-block h-14 w-14 rounded-md'
-                src={generateProfileImagePath(shorthand, nationality)}
-                alt={playerFullName}
+                src={generatePlayerImagePath(shorthand, nationality)}
+                alt={fullName}
               />
             </div>
-            <div>{playerFullName}</div>
+            <div>{fullName}</div>
           </div>
         </h2>
       </div>
-      <div className='mt-4 md:ml-4 md:mt-0 md:w-80'>
-        <SelectBox
-          options={options}
-          value={selectedOption}
-          handleChange={handleChangePlayerStats}
-        />
-      </div>
+      {currentOptions && (
+        <div className='mt-4 md:ml-4 md:mt-0 md:w-80'>
+          <SelectBox
+            options={options}
+            value={currentOptions}
+            handleChange={handleChangePlayerStats}
+          />
+        </div>
+      )}
     </div>
   );
 };
