@@ -1,7 +1,7 @@
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
-import { Season } from '@/app/leagues/League';
+import { Season } from '@/app/utils/useLeagues';
 
 export type Option = {
   id: number;

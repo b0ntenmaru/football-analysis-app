@@ -3,7 +3,7 @@ import { LeagueSelectControl } from '@/app/analysis/LeagueSelectControl';
 import { PlayerInputComboBox } from '@/app/analysis/PlayerInputComboBox';
 import { SeasonPlayer } from '@/app/analysis/SeasonPlayer';
 import { SeasonSelectControl } from '@/app/analysis/SeasonSelectControl';
-import { League, Season } from '@/app/leagues/League';
+import { League, Season } from '@/app/utils/useLeagues';
 
 type PlayerSettingProps = {
   leagues: League[];

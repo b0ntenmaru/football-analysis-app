@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function HomeUi() {
-  return <div>asdfasdf</div>;
+  return <div>home page</div>;
 }

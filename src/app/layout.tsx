@@ -7,7 +7,7 @@ import { TailwindLayout } from './TailwindLayout';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'FOOTBALL JUNKIE',
+  title: 'FOOTBALL Junkie',
   description: 'This site made for football junkies.',
 };
 

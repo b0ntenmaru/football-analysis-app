@@ -19,24 +19,20 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
   FolderIcon,
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  TableCellsIcon,
 } from '@heroicons/react/24/outline';
 import { Fragment, useState } from 'react';
+import { GiSoccerBall } from 'react-icons/gi';
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: HomeIcon, current: false },
-  { name: 'Analysis', href: '/analysis', icon: UsersIcon, current: true },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+  { name: 'ダッシュボード', href: '/', icon: HomeIcon, current: false },
+  { name: 'リーグ', href: '/leagues', icon: GiSoccerBall, current: false },
+  { name: 'スタッツ分析', href: '/analysis', icon: TableCellsIcon, current: false },
 ];
 const teams = [
   { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
@@ -121,7 +117,7 @@ export function TailwindLayout({ children }: TailwindLayoutProps) {
                       <img
                         className='h-8 w-auto'
                         src='https://avatars.githubusercontent.com/u/30609858?v=4'
-                        alt='FOOTBALL JUNKIE'
+                        alt='FOOTBALL Junkie'
                       />
                     </div>
                     <nav className='flex flex-1 flex-col'>
@@ -197,9 +193,9 @@ export function TailwindLayout({ children }: TailwindLayoutProps) {
               <img
                 className='h-8 w-auto'
                 src='https://avatars.githubusercontent.com/u/30609858?v=4'
-                alt='FOOTBALL JUNKIE'
+                alt='FOOTBALL Junkie'
               />
-              <div className='text-neutral-50'>FOOTBALL JUNKIE</div>
+              <div className='text-neutral-50'>FOOTBALL Junkie</div>
             </div>
             <nav className='flex flex-1 flex-col'>
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
