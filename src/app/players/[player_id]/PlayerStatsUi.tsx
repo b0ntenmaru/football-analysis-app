@@ -9,15 +9,12 @@ import { Option } from '@/app/players/[player_id]/SelectBox';
 
 type PlayerStatsProps = {
   playerStatsList: PlayerStats[];
-  team?: any;
 };
 
 export const PlayerStatsUi = React.memo(function PlayerStats({
   playerStatsList,
-  team,
 }: PlayerStatsProps) {
   const defaultValue = playerStatsList[0];
-
   const [playerStats, setPlayerStats] = useState<PlayerStats>(defaultValue);
 
   const handleChangePlayerStats = (competitionId: number) => {
@@ -36,8 +33,6 @@ export const PlayerStatsUi = React.memo(function PlayerStats({
   });
 
   const currentOptions = options.find((option) => option.id === playerStats.competition_id);
-
-  console.log(playerStats);
 
   return (
     <div>
