@@ -120,8 +120,8 @@ export function TailwindLayout({ children }: TailwindLayoutProps) {
                     <div className='flex h-16 shrink-0 items-center'>
                       <img
                         className='h-8 w-auto'
-                        src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                        alt='Your Company'
+                        src='https://avatars.githubusercontent.com/u/30609858?v=4'
+                        alt='FOOTBALL JUNKIE'
                       />
                     </div>
                     <nav className='flex flex-1 flex-col'>
@@ -193,12 +193,13 @@ export function TailwindLayout({ children }: TailwindLayoutProps) {
         <div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className='flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4'>
-            <div className='flex h-16 shrink-0 items-center'>
+            <div className='flex h-16 shrink-0 items-center gap-4'>
               <img
                 className='h-8 w-auto'
-                src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
-                alt='Your Company'
+                src='https://avatars.githubusercontent.com/u/30609858?v=4'
+                alt='FOOTBALL JUNKIE'
               />
+              <div className='text-neutral-50'>FOOTBALL JUNKIE</div>
             </div>
             <nav className='flex flex-1 flex-col'>
               <ul role='list' className='flex flex-1 flex-col gap-y-7'>
