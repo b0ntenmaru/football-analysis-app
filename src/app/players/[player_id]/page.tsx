@@ -1,6 +1,5 @@
 import { PlayerStatsUi } from '@/app/players/[player_id]/PlayerStatsUi';
 import { usePlayerStatsList } from '@/app/players/[player_id]/usePlayerStatsList';
-import { useTeam } from '@/app/players/[player_id]/useTeam';
 
 export default async function Page({
   params,

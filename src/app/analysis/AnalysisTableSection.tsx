@@ -15,8 +15,8 @@ export function AnalysisTableSection({
   analysisTable,
 }: AnalysisTableProps) {
   return (
-    <div className='px-4 sm:px-6 lg:px-8'>
-      <div className='flex items-center justify-between'>
+    <div>
+      <div className='flex items-center justify-between mb-4'>
         <div className='sm:flex-auto'>
           {/*<h1 className='text-base font-semibold leading-6 text-gray-900'>分析結果</h1>*/}
         </div>
