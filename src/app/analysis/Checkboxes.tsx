@@ -1,9 +1,10 @@
 type CheckboxesProps = {
   statsList: { label: string; value: string }[];
+  selectedStats: string[];
   handleChangeStats: (value: string) => void;
 };
 
-export function Checkboxes({ statsList, handleChangeStats }: CheckboxesProps) {
+export function Checkboxes({ statsList, selectedStats, handleChangeStats }: CheckboxesProps) {
   return (
     <fieldset>
       <div className='mt-4 divide-y divide-gray-200 border-b border-t border-gray-200'>
@@ -16,6 +17,7 @@ export function Checkboxes({ statsList, handleChangeStats }: CheckboxesProps) {
                 type='checkbox'
                 className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600'
                 onChange={() => handleChangeStats(item.value)}
+                checked={selectedStats.includes(item.value)}
               />
             </div>
 

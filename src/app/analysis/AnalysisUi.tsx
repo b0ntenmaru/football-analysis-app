@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { AnalysisTable } from '@/app/analysis/AnalysisTable';
+import { useState } from 'react';
+import { AnalysisTableSection } from '@/app/analysis/AnalysisTableSection';
 import { PlayerSelectModal } from '@/app/analysis/PlayerSelectModal';
 import { PlayerSetting } from '@/app/analysis/PlayerSetting';
 import { PrimaryButton } from '@/app/analysis/PrimaryButton';
@@ -9,19 +9,21 @@ import { SeasonPlayer } from '@/app/analysis/SeasonPlayer';
 import { SelectPlayerSection } from '@/app/analysis/SelectPlayerSection';
 import { StatsSelectModal } from '@/app/analysis/StatsSelectModal';
 import { fetchSeasonPlayers } from '@/app/analysis/fetchSeasonPlayers';
+import { usePlayerAnalysisTable } from '@/app/analysis/usePlayerAnalysisTable';
 import type { League, Season } from '@/app/leagues/League';
+import { PlayerAnalysisTable } from '@/pages/api/fetch-analysis-table/generatePlayerAnalysisTable';
 
 type AnalysisUiProps = {
   leagues: League[];
 };
 
 export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
-  const [selectedLeague, setSelectedLeague] = React.useState<League | null>(null);
-  const [selectedSeason, setSelectedSeason] = React.useState<Season | null>(null);
-  const [seasonPlayers, setSeasonPlayers] = React.useState<SeasonPlayer[]>([]);
-  const [seasonPlayer, setSeasonPlayer] = React.useState<SeasonPlayer | null>(null);
+  const [selectedLeague, setSelectedLeague] = useState<League | null>(null);
+  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
+  const [seasonPlayers, setSeasonPlayers] = useState<SeasonPlayer[]>([]);
+  const [seasonPlayer, setSeasonPlayer] = useState<SeasonPlayer | null>(null);
 
-  const [targetPlayers, setTargetPlayers] = React.useState<SeasonPlayer[]>([]);
+  const [targetPlayers, setTargetPlayers] = useState<SeasonPlayer[]>([]);
 
   const [openPlayerSelectModal, setOpenPlayerSelectModal] = useState(false);
   const [isSeasonPlayersLoading, setIsSeasonPlayersLoading] = useState(false);
@@ -87,11 +89,23 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
     setOpenStatsSelectModal(false);
   };
 
+  // 分析が可能か否か
+  const analysisIsImpossible = targetPlayers.length === 0 || selectedStats.length === 0;
+
+  const [analysisTable, setAnalysisTable] = useState<PlayerAnalysisTable | null>(null);
+  const generateAnalysisResult = async () => {
+    if (analysisIsImpossible) throw new Error('分析対象が選択されていません。');
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { analysisTable } = await usePlayerAnalysisTable({ targetPlayers, selectedStats });
+    setAnalysisTable(analysisTable);
+  };
+
   return (
     <>
-      {/*<div className='text-right mb-2'>*/}
-      {/*  <PrimaryButton onClick={() => setOpenStatsSelectModal(true)}>スタッツを選ぶ</PrimaryButton>*/}
-      {/*</div>*/}
+      <div className='text-right mb-2'>
+        <PrimaryButton onClick={() => setOpenStatsSelectModal(true)}>スタッツを選ぶ</PrimaryButton>
+      </div>
 
       <div>
         <SelectPlayerSection
@@ -101,7 +115,11 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
       </div>
 
       <div className='mt-10'>
-        <AnalysisTable />
+        <AnalysisTableSection
+          generateAnalysisResult={generateAnalysisResult}
+          analysisButtonIsDisabled={analysisIsImpossible}
+          analysisTable={analysisTable}
+        />
       </div>
 
       <StatsSelectModal
