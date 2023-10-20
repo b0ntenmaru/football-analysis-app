@@ -1,4 +1,3 @@
-import { League } from '@/app/leagues/League';
 import { fetchDataFromFootyStats } from '@/app/utils/fetchDataFromFootyStats';
 
 export const useLeagues = async () => {
@@ -8,4 +7,16 @@ export const useLeagues = async () => {
   });
 
   return leagues;
+};
+
+export type Season = {
+  id: number;
+  year: number;
+};
+export type League = {
+  country: string;
+  image: string;
+  league_name: string;
+  name: string;
+  season: Season[];
 };
