@@ -94,7 +94,6 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
 
   const [analysisTable, setAnalysisTable] = useState<PlayerAnalysisTable | null>(null);
   const generateAnalysisResult = async () => {
-    console.log(targetPlayers);
     if (analysisIsImpossible) throw new Error('分析対象が選択されていません。');
 
     // eslint-disable-next-line react-hooks/rules-of-hooks

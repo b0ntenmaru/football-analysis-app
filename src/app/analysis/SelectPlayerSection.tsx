@@ -21,7 +21,7 @@ export function SelectPlayerSection({
 
       {targetPlayers.length !== 0 && (
         <div>
-          <div className='overflow-y-scroll max-h-72'>
+          <div className='overflow-y-scroll max-h-72 mb-2'>
             <PlayerList players={targetPlayers} />
           </div>
 
