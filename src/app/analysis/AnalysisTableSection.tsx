@@ -18,7 +18,9 @@ export function AnalysisTableSection({
     <div>
       <div className='flex items-center justify-between mb-4'>
         <div className='sm:flex-auto'>
-          {/*<h1 className='text-base font-semibold leading-6 text-gray-900'>分析結果</h1>*/}
+          {analysisTable && (
+            <h1 className='text-base font-semibold leading-6 text-gray-900'>分析結果</h1>
+          )}
         </div>
 
         <div className='sm:ml-16 sm:mt-0 sm:flex-none'>
