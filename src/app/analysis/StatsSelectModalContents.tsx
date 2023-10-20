@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Checkboxes } from '@/app/analysis/Checkboxes';
 import { statsList } from '@/app/analysis/statsList';
 
@@ -6,7 +7,7 @@ type StatsSelectModalContentsProps = {
   handleChangeStats: (value: string) => void;
 };
 
-export function StatsSelectModalContents({
+export const StatsSelectModalContents = memo(function StatsSelectModalContents({
   selectedStats,
   handleChangeStats,
 }: StatsSelectModalContentsProps) {
@@ -17,22 +18,38 @@ export function StatsSelectModalContents({
         {/* 基本情報 */}
         <div className='mb-6'>
           <legend className='text-base font-semibold leading-6 text-gray-900'>基本情報</legend>
-          <Checkboxes statsList={statsList.basicInfoStats} handleChangeStats={handleChangeStats} />
+          <Checkboxes
+            statsList={statsList.basicInfoStats}
+            selectedStats={selectedStats}
+            handleChangeStats={handleChangeStats}
+          />
         </div>
 
         <div className='mb-6'>
           <legend className='text-base font-semibold leading-6 text-gray-900'>試合</legend>
-          <Checkboxes statsList={statsList.appearanceStats} handleChangeStats={handleChangeStats} />
+          <Checkboxes
+            statsList={statsList.appearanceStats}
+            selectedStats={selectedStats}
+            handleChangeStats={handleChangeStats}
+          />
         </div>
 
         <div className='mb-6'>
           <legend className='text-base font-semibold leading-6 text-gray-900'>オフェンス</legend>
-          <Checkboxes statsList={statsList.attackingStats} handleChangeStats={handleChangeStats} />
+          <Checkboxes
+            statsList={statsList.attackingStats}
+            selectedStats={selectedStats}
+            handleChangeStats={handleChangeStats}
+          />
         </div>
 
         <div className='mb-6'>
           <legend className='text-base font-semibold leading-6 text-gray-900'>ディフェンス</legend>
-          <Checkboxes statsList={statsList.defensiveStats} handleChangeStats={handleChangeStats} />
+          <Checkboxes
+            statsList={statsList.defensiveStats}
+            selectedStats={selectedStats}
+            handleChangeStats={handleChangeStats}
+          />
         </div>
 
         <div className='mb-6'>
@@ -41,10 +58,11 @@ export function StatsSelectModalContents({
           </legend>
           <Checkboxes
             statsList={statsList.performanceStats}
+            selectedStats={selectedStats}
             handleChangeStats={handleChangeStats}
           />
         </div>
       </div>
     </div>
   );
-}
+});

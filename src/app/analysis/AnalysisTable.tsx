@@ -9,7 +9,9 @@ type AnalysisTableProps = {
   analysisTable: PlayerAnalysisTable;
 };
 
-export function AnalysisTable({ analysisTable }: AnalysisTableProps) {
+export const AnalysisTable = React.memo(function AnalysisTable({
+  analysisTable,
+}: AnalysisTableProps) {
   const { headRow, bodyRows } = analysisTable;
 
   return (
@@ -19,7 +21,7 @@ export function AnalysisTable({ analysisTable }: AnalysisTableProps) {
           <table className='min-w-full border-separate border-spacing-0'>
             <thead>
               <tr>
-                {headRow.map((headCell, headCellIdx) => {
+                {headRow.map((headCell) => {
                   return (
                     <th
                       key={headCell.id}
@@ -56,4 +58,4 @@ export function AnalysisTable({ analysisTable }: AnalysisTableProps) {
       </div>
     </div>
   );
-}
+});

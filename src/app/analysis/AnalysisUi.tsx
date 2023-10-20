@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AnalysisTableSection } from '@/app/analysis/AnalysisTableSection';
 import { PlayerSelectModal } from '@/app/analysis/PlayerSelectModal';
 import { PlayerSetting } from '@/app/analysis/PlayerSetting';
@@ -18,12 +18,12 @@ type AnalysisUiProps = {
 };
 
 export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
-  const [selectedLeague, setSelectedLeague] = React.useState<League | null>(null);
-  const [selectedSeason, setSelectedSeason] = React.useState<Season | null>(null);
-  const [seasonPlayers, setSeasonPlayers] = React.useState<SeasonPlayer[]>([]);
-  const [seasonPlayer, setSeasonPlayer] = React.useState<SeasonPlayer | null>(null);
+  const [selectedLeague, setSelectedLeague] = useState<League | null>(null);
+  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
+  const [seasonPlayers, setSeasonPlayers] = useState<SeasonPlayer[]>([]);
+  const [seasonPlayer, setSeasonPlayer] = useState<SeasonPlayer | null>(null);
 
-  const [targetPlayers, setTargetPlayers] = React.useState<SeasonPlayer[]>([]);
+  const [targetPlayers, setTargetPlayers] = useState<SeasonPlayer[]>([]);
 
   const [openPlayerSelectModal, setOpenPlayerSelectModal] = useState(false);
   const [isSeasonPlayersLoading, setIsSeasonPlayersLoading] = useState(false);
@@ -98,8 +98,6 @@ export const AnalysisUi = ({ leagues }: AnalysisUiProps) => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { analysisTable } = await usePlayerAnalysisTable({ targetPlayers, selectedStats });
-    console.log(analysisTable);
-
     setAnalysisTable(analysisTable);
   };
 

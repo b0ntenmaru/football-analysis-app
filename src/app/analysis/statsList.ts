@@ -12,23 +12,15 @@ const basicInfoStats: StatsLabel[] = [
     label: 'シャツ番号',
     value: 'shirt_number',
   },
-  {
-    label: '主クラブID',
-    value: 'club_team_id',
-  },
-  {
-    label: 'サブクラブID（もし存在する場合）',
-    value: 'club_team_2_id',
-  },
 ];
 
 const appearanceStats: StatsLabel[] = [
   {
-    label: '出場試合数（詳細）',
+    label: '出場試合数',
     value: 'detailed_matches_played_recorded_overall',
   },
   {
-    label: '出場時間（詳細）',
+    label: '出場時間',
     value: 'detailed_minutes_played_recorded_overall',
   },
   {
@@ -40,11 +32,11 @@ const appearanceStats: StatsLabel[] = [
     value: 'minutes_played_percentile_overall',
   },
   {
-    label: '試合開始回数',
+    label: 'スタメンの回数',
     value: 'games_started',
   },
   {
-    label: '試合開始回数のパーセンタイル',
+    label: 'スタメンの確率',
     value: 'games_started_percentile_overall',
   },
   {
@@ -52,7 +44,7 @@ const appearanceStats: StatsLabel[] = [
     value: 'games_subbed_in',
   },
   {
-    label: '途中出場回数のパーセンタイル',
+    label: '途中出場回数の確率',
     value: 'games_subbed_in_percentile_overall',
   },
   {
@@ -60,70 +52,70 @@ const appearanceStats: StatsLabel[] = [
     value: 'games_subbed_out',
   },
   {
-    label: '途中退場回数のパーセンタイル',
+    label: '途中退場回数の確率',
     value: 'games_subbed_out_percentile_overall',
   },
 ];
 
 const attackingStats: StatsLabel[] = [
   {
-    label: 'ゴールの期待値（90分あたり）',
+    label: '90分あたりのゴールの期待値',
     value: 'xg_per_90_overall',
   },
   {
-    label: 'ゴールの期待値（試合あたり）',
+    label: '1試合あたりのゴールの期待値',
     value: 'xg_per_game_overall',
   },
   {
-    label: 'ゴールの期待値（合計）',
+    label: 'トータルゴールの期待値',
     value: 'xg_total_overall',
   },
   {
-    label: 'アシストの期待値（90分あたり）',
+    label: '90分あたりのアシストの期待値',
     value: 'xa_per_90_overall',
   },
   {
-    label: 'アシストの期待値（試合あたり）',
+    label: '1試合あたりのアシストの期待値',
     value: 'xa_per_game_overall',
   },
   {
-    label: 'アシストの期待値（合計）',
+    label: 'トータルアシスト期待値',
     value: 'xa_total_overall',
   },
   {
-    label: 'キーパス（90分あたり）',
+    label: '90分あたりのキーパス数',
     value: 'key_passes_per_90_overall',
   },
   {
-    label: 'キーパス（試合あたり）',
+    label: '1試合あたりのキーパス数',
     value: 'key_passes_per_game_overall',
   },
   {
-    label: 'キーパス（合計）',
+    label: '合計キーパス数',
     value: 'key_passes_total_overall',
   },
   {
-    label: '成功したドリブル（90分あたり）',
+    label: '90分あたりのドリブル成功率',
     value: 'dribbles_successful_per_90_overall',
   },
   {
-    label: '成功したドリブル（試合あたり）',
+    label: '1試合あたりドリブル数',
     value: 'dribbles_successful_per_game_overall',
   },
   {
-    label: '成功したドリブル（合計）',
+    label: 'ドリブル成功数',
     value: 'dribbles_successful_total_overall',
   },
   {
-    label: 'ショットオンターゲット（90分あたり）',
+    label: '90分あたりの枠内シュート数',
     value: 'shots_on_target_per_90_overall',
   },
   {
-    label: 'ショットオンターゲット（試合あたり）',
+    label: '1試合あたりの枠内シュート数',
     value: 'shots_on_target_per_game_overall',
   },
   {
-    label: 'ショットオンターゲット（合計）',
+    label: '合計枠内シュート数',
     value: 'shots_on_target_total_overall',
   },
 ];
