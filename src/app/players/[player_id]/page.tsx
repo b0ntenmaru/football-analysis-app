@@ -10,7 +10,6 @@ export default async function Page({
   };
 }) {
   const playerStatsList = await usePlayerStatsList(params.player_id);
-  const team = await useTeam(playerStatsList[0].club_team_id);
 
-  return <PlayerStatsUi playerStatsList={playerStatsList} team={team} />;
+  return <PlayerStatsUi playerStatsList={playerStatsList} />;
 }
