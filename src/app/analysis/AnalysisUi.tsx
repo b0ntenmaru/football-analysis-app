@@ -10,7 +10,7 @@ import { SelectPlayerSection } from '@/app/analysis/SelectPlayerSection';
 import { StatsSelectModal } from '@/app/analysis/StatsSelectModal';
 import { fetchSeasonPlayers } from '@/app/analysis/fetchSeasonPlayers';
 import { usePlayerAnalysisTable } from '@/app/analysis/usePlayerAnalysisTable';
-import type { League, Season } from '@/app/leagues/League';
+import { League, Season } from '@/app/utils/useLeagues';
 import { PlayerAnalysisTable } from '@/pages/api/fetch-analysis-table/generatePlayerAnalysisTable';
 
 type AnalysisUiProps = {

@@ -3,7 +3,7 @@
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
-import { League } from '@/app/leagues/League';
+import { League } from '@/app/utils/useLeagues';
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
