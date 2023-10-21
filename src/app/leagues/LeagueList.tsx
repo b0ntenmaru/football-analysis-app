@@ -37,8 +37,13 @@ export function LeagueList({ leagues }: LeagueListPorps) {
             </div>
           </div>
 
-          <div className='flex shrink-0 items-center gap-x-4'>
-            <ChevronRightIcon className='h-5 w-5 flex-none text-gray-400' aria-hidden='true' />
+          <div className='flex flex-none items-center gap-x-4'>
+            <a
+              href='#'
+              className='hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block'
+            >
+              View Details
+            </a>
           </div>
         </li>
       ))}
