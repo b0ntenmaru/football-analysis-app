@@ -8,7 +8,7 @@ export function LeagueListPage({ leagues }: LeagueListPageProps) {
   return (
     <div>
       <div>
-        <h1 className='text-base font-semibold leading-7'>Deployments</h1>
+        <h1 className='text-base font-semibold leading-7 mb-2'>欧州主要リーグ一覧</h1>
 
         <LeagueList leagues={leagues} />
       </div>

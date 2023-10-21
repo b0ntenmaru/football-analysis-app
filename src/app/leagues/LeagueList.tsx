@@ -19,7 +19,7 @@ export function LeagueList({ leagues }: LeagueListPorps) {
       {leagues.map((league) => (
         <li
           key={league.name}
-          className='relative flex justify-between gap-x-6 px-4 py-5 hover:bg-gray-50 sm:px-6'
+          className='relative flex justify-between gap-x-6 px-4 py-3 hover:bg-gray-50 sm:px-4'
         >
           <div className='flex min-w-0 gap-x-4 items-center'>
             <img
