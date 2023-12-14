@@ -20,11 +20,9 @@ import {
   Bars3Icon,
   BellIcon,
   Cog6ToothIcon,
-  FolderIcon,
   HomeIcon,
-  UsersIcon,
-  XMarkIcon,
   TableCellsIcon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { Fragment, useState } from 'react';
 import { GiSoccerBall } from 'react-icons/gi';
@@ -52,7 +50,7 @@ type TailwindLayoutProps = {
   children: React.ReactNode;
 };
 
-export function TailwindLayout({ children }: TailwindLayoutProps) {
+export function TailwindLayoutSidebar({ children }: TailwindLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
